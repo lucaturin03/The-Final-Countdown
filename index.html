@@ -129,7 +129,9 @@ h1 span:nth-child(3) { margin-left: .12em; }
   padding: .5em 0;
   box-shadow: 0 6px 10px rgba(0,0,0,.22);
 }
-.strip__track { display: inline-block; animation: slide 28s linear infinite; }
+.strip__track { display: flex; width: max-content; animation: slide 28s linear infinite; }
+/* due gruppi identici, ognuno largo almeno quanto lo schermo: a -50% il secondo è esattamente dov'era il primo */
+.strip__group { display: flex; flex: none; min-width: 100vw; justify-content: space-around; }
 .strip__track span { margin-inline: 1.1em; }
 .strip__track span:nth-child(even) { color: #f6f4ef; opacity: .85; }
 @keyframes slide { to { transform: translateX(-50%); } }
@@ -268,8 +270,8 @@ footer p { margin: 0; }
 
 <div class="strip" aria-hidden="true">
   <div class="strip__track">
-    <span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span><span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span>
-    <span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span><span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span>
+    <div class="strip__group"><span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span><span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span></div>
+    <div class="strip__group"><span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span><span>TFCD</span><span>31-12-26</span><span>Prendimi</span><span>The Final Countdown</span></div>
   </div>
 </div>
 
