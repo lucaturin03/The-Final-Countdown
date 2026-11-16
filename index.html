@@ -74,12 +74,11 @@ a { color: inherit; }
 
 /* ---------- hero ---------- */
 .hero {
-  min-height: 100svh;
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
   align-items: center;
   gap: clamp(24px, 4vw, 56px);
-  padding-block: 32px;
+  padding-block: clamp(16px, 3vw, 32px) 56px;
 }
 .hero__photo {
   width: 100%;
@@ -94,7 +93,7 @@ a { color: inherit; }
 .hero__text { padding-block: 24px; }
 .kicker {
   font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-  font-size: .8rem; color: var(--ink-soft); margin: 0 0 18px;
+  font-size: .8rem; color: var(--ink-soft); margin: 0 0 34px;
 }
 h1 {
   font-family: var(--marker);
@@ -246,7 +245,7 @@ footer p { margin: 0; }
   /* la foto ha molto muro vuoto sopra e sotto: su schermi stretti la ritaglio quadrata */
   .hero__photo { width: min(320px, 78vw); aspect-ratio: 1; object-fit: cover; object-position: 50% 40%; margin-bottom: 10px; }
   .hero__text { padding-block: 0; }
-  .kicker { margin-bottom: 20px; }
+  .kicker { margin-bottom: 30px; }
   h1 { margin-bottom: 22px; }
   h1, h2 { transform-origin: center; }
   h1 span:nth-child(n) { margin-left: 0; }
