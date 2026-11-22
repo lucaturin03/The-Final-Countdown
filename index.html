@@ -7,8 +7,8 @@
 <meta name="description" content="The Final Countdown. Iscriviti e prenditi il tuo bicchiere.">
 <meta property="og:title" content="TFCD — The Final Countdown">
 <meta property="og:description" content="Prendimi il 31-12-26. Capodanno 2027.">
-<meta property="og:image" content="assets/hero.jpg">
-<meta name="theme-color" content="#cdccc7">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="theme-color" content="#d9d4d3">
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png?v=2">
@@ -18,20 +18,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 @font-face {
-  font-family: "a dripping marker";
-  src: url("assets/font.ttf") format("truetype");
+  font-family: "Graffiti Drip";
+  src: url("assets/graffiti-drip.woff2") format("woff2"), url("assets/graffiti-drip.ttf") format("truetype");
   font-weight: 400; font-style: normal; font-display: swap;
 }
 :root {
-  --wall: #cdccc7;
-  --paper: #e9e7e2;
+  --wall: #d9d4d3;
+  --paper: #f1eeec;
   --ink: #141415;
   --ink-soft: #55534f;
   --tape: #0c0c0d;
-  --pink: #e02d92;
+  --pink: #e22d93;
   --pink-deep: #b8328f;
   --violet: #8f3fa8;
-  --marker: "a dripping marker", "Marker Felt", "Comic Sans MS", cursive;
+  --marker: "Graffiti Drip", "Marker Felt", "Comic Sans MS", cursive;
   --body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 * { box-sizing: border-box; }
@@ -44,10 +44,12 @@ body {
   font-size: 17px;
   line-height: 1.55;
   overflow-x: clip;
-  /* grana leggera da muro intonacato */
+  /* muro intonacato: texture ripresa dal poster, ripetibile senza giunture */
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.3), transparent 60%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.28), transparent 60%),
+    radial-gradient(ellipse at 50% 120%, rgba(0,0,0,.06), transparent 60%),
+    url("assets/wall.jpg");
+  background-size: auto, auto, 800px 800px;
 }
 a { color: inherit; }
 .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
@@ -90,9 +92,8 @@ a { color: inherit; }
   justify-self: center;
   height: auto;
   align-self: center;
-  filter: brightness(.915);
-  -webkit-mask-image: radial-gradient(ellipse 62% 60% at 50% 50%, #000 78%, transparent 100%);
-          mask-image: radial-gradient(ellipse 62% 60% at 50% 50%, #000 78%, transparent 100%);
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,.18));
 }
 .hero__text { padding-block: 16px; }
 .kicker {
@@ -102,8 +103,8 @@ a { color: inherit; }
 h1 {
   font-family: var(--marker);
   font-weight: 400;
-  font-size: clamp(4.6rem, 11vw, 9.2rem);
-  line-height: .9;
+  font-size: clamp(3.6rem, 7.2vw, 6.6rem);
+  line-height: .95;
   margin: 0 0 40px;
   color: var(--pink);
   transform: rotate(-3deg);
@@ -114,7 +115,7 @@ h1 {
 h1 span { display: block; }
 h1 span:first-child { margin-left: .1em; } /* la T ha un'ala negativa: la riallineo al kicker */
 h1 span:nth-child(2) { margin-left: .35em; }
-.hero__date { font-size: clamp(2.2rem, 4.4vw, 3.2rem); --rot: 1.5deg; margin-bottom: 26px; }
+.hero__date { white-space: nowrap; font-size: clamp(1.6rem, 3vw, 2.5rem); --rot: 1.5deg; margin-bottom: 26px; }
 .hero__lead { max-width: 38ch; margin: 0 0 30px; font-size: 1.15rem; }
 .cta {
   --rot: -1.5deg;
@@ -252,11 +253,10 @@ footer p { margin: 0; }
 /* ---------- responsive ---------- */
 @media (max-width: 820px) {
   .hero { grid-template-columns: 1fr; align-content: center; text-align: center; padding-block: 8px 40px; gap: 0; }
-  /* la foto ha molto muro vuoto sopra e sotto: su schermi stretti la ritaglio quadrata */
-  .hero__photo { width: min(320px, 76vw); aspect-ratio: 1; object-fit: cover; object-position: 50% 40%; margin-bottom: 10px; }
+  .hero__photo { width: min(340px, 80vw); margin-bottom: 18px; }
   .hero__text { padding-block: 0; }
   .kicker { margin-bottom: 24px; }
-  h1 { font-size: clamp(4.4rem, 21vw, 7rem); margin-bottom: 30px; }
+  h1 { font-size: clamp(2.6rem, 13.5vw, 5.4rem); margin-bottom: 30px; }
   .hero__date { margin-bottom: 22px; }
   h1, h2 { transform-origin: center; }
   h1 span:nth-child(n) { margin-left: 0; }
@@ -281,14 +281,14 @@ footer p { margin: 0; }
 <body>
 
 <header class="hero wrap">
-  <img class="hero__photo" src="assets/hero.jpg" width="945" height="1391"
-       alt="Un calice di vino bianco con la scritta TFCD, attaccato al muro con del nastro adesivo nero su cui è scritto a pennarello rosa «Prendimi il 31-12-26»">
+  <img class="hero__photo" src="assets/glass.webp" width="924" height="919"
+       alt="Un calice di vino bianco attaccato al muro con strisce di nastro adesivo nero">
   <div class="hero__text">
     <p class="kicker">Capodanno 2027</p>
     <h1><span>The</span><span>Final</span><span>Countdown</span></h1>
     <div><span class="tape hero__date"><span class="ink">Prendimi il 31-12-26</span></span></div>
     <p class="hero__lead">Un bicchiere, un muro, un giro di nastro. L'ultima notte dell'anno la passiamo insieme: stacca il tuo calice e brinda con noi al 2027.</p>
-    <a class="tape cta" href="#iscrizione">Iscriviti&nbsp;→</a>
+    <a class="tape cta" href="#iscrizione">Iscriviti!</a>
   </div>
 </header>
 
